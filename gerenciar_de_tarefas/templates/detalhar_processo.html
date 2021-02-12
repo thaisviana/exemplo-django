@@ -1,0 +1,45 @@
+{% extends "base_generic.html" %}
+{% block content %}
+        <div class="row">
+            <h1>Processo {{ processo.pid }}</h1>
+        </div>
+        <div class="row">
+            <div class="card w-75">
+                <div class="card-body">
+                    <h5 class="card-title">Nome</h5>
+                    <p class="card-text">{{ processo.name }}</p>
+                </div>
+            </div>
+            <div class="card w-75">
+                <div class="card-body">
+                    <h5 class="card-title">Status</h5>
+                    <p class="card-text">{{ processo.status }}</p>
+                </div>
+            </div>
+            <div class="card w-75">
+                <div class="card-body">
+                    <h5 class="card-title">CWD</h5>
+                    <p class="card-text">{{ processo.cwd }}</p>
+                </div>
+            </div>
+            <div class="card w-75">
+                <div class="card-body">
+                    <h5 class="card-title">memory_info</h5>
+                    <p class="card-text">rss:{{ processo.memory_info.rss }}</p>
+                    <p class="card-text">vms: {{ processo.memory_info.vms }}</p>
+                    <p class="card-text">pfaults:{{ processo.memory_info.pfaults }}</p>
+                    <p class="card-text">pageins{{ processo.memory_info.pageins }}</p>
+                </div>
+            </div>
+            <div class="card w-75">
+                <div class="card-body">
+                    <h5 class="card-title">cpu_times</h5>
+                    <p class="card-text">user : {{ processo.cpu_times.user }}</p>
+                    <p class="card-text">system : {{ processo.cpu_times.system }}</p>
+                    <p class="card-text">children_user : {{ processo.cpu_times.children_user }}</p>
+                    <p class="card-text">children_system : {{ processo.cpu_times.children_system }}</p>
+                </div>
+            </div>
+
+        </div>
+{% endblock %}

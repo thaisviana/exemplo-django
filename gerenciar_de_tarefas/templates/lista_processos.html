@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+{% block content %}
+        <div class="row">
+            <h1>Lista Processos:</h1>
+        </div>
+        <div class="row">
+            {% if processos %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">PID</th>
+                        <th scope="col">memory_percent</th>
+                        <th scope="col">cpu_percent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for info in processos %}
+                        <tr>
+                            <td> <a href="{% url 'processo' info.pid %}"> {{ info.name }} </a></td>
+                            <td>{{ info.pid }}</td>
+                            <td>{{ info.memory_percent }}</td>
+                            <td>{{ info.cpu_percent }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    </table>
+            {% else %}
+                <p>Não tem arquivos em Download.</p>
+            {% endif %}
+        </div>
+
+{% endblock %}

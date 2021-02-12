@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+{% block content %}
+        <div class="row">
+            <h1>Lista aquivos:</h1>
+        </div>
+        <div class="row">
+            {% if lista %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Data de último acesso</th>
+                        <th scope="col">Data de última modificação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for info in lista %}
+                        <tr>
+                            <td>{{ info.nome }}</td>
+                            <td>{{ info.dt_acesso }}</td>
+                            <td>{{ info.dt_modificacao }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    </table>
+            {% else %}
+                <p>Não tem arquivos em Download.</p>
+            {% endif %}
+        </div>
+
+{% endblock %}
